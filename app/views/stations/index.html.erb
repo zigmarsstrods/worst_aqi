@@ -1,14 +1,31 @@
-<h1>Current AQI per country</h1>
+<h1>Top 10 countries with worst Air Quality Index</h1>
 
-<ul>
-  <% @stations.each do |station| %>
-    <li>
-       <%= station.country.name %>
-      <%= station.aqi %> 
-     
-    </li>
-  <% end %>
-</ul>
+<canvas id="myChart" width="200px" height="100px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
+
+<%= javascript_pack_tag "application" %>
+<h1>Ranking for all countries</h1>
+<div class="container">
+ <table id="table">
+    <thead>
+     <tr>
+        <th>Rank</th>
+        <th>Country</th>
+        <th>AQI</th>
+     </tr>
+    </thead>
+    <tbody>
+      <%c =1 %>
+      <% @stations_all.each do |station| %>
+        <tr>
+          <td><%= c %>.</td>
+          <td><%= station.country.name %></td>
+          <td><%= station.aqi %></td>
+        </tr>
+        <%c +=1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="demo">
 <form action="#">
@@ -20,7 +37,3 @@
 </fieldset>
 </form>
 </div>
-
-<canvas id="myChart" width="200px" height="100px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
-
-<%= javascript_pack_tag "application" %>

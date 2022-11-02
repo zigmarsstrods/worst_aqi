@@ -7,7 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import Chart from 'chart.js/auto';
 require('jquery-ui/dist/jquery-ui')
-
+require ('bootstrap-table')
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
@@ -28,6 +28,15 @@ document.addEventListener('turbolinks:load', () => {
    var myChart = new Chart(ctx, {
    type: 'bar',
    backgroundColor: 'rgba(255, 255, 255, 1)',
+   options: {
+    plugins: {
+      legend: {
+        title: {
+          text: 'AQI'
+        }
+      }
+    }
+   },
    data: {
      labels: JSON.parse(ctx.canvas.dataset.labels),
      datasets: [{

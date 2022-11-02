@@ -10,4 +10,5 @@ environment.plugins.append(
     'windows.jQuery': 'jquery',
   })
 )
+
 module.exports = environment

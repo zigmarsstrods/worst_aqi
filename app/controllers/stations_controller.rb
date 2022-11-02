@@ -4,6 +4,7 @@ class StationsController < ApplicationController
       station.aqi = station.aqi.to_i
     end
     @stations = Station.all.to_a.sort_by { |station| station.aqi.to_i }.reverse![0...10]
+    @stations_all = Station.all.to_a.sort_by { |station| station.aqi.to_i }.reverse!
     @chart_data = @stations.map {|station| {station.country.name => station.aqi}}
     @data_keys = []
     @data_values = []
