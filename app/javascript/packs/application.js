@@ -31,10 +31,9 @@ document.addEventListener('turbolinks:load', () => {
    options: {
     plugins: {
       legend: {
-        title: {
-          text: 'AQI'
-        }
+        display: 'false'
       }
+      
     }
    },
    data: {
