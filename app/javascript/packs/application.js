@@ -6,6 +6,8 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import Chart from 'chart.js/auto';
+// import "bootstrap"
+// import "../stylesheets/application"
 require('jquery-ui/dist/jquery-ui')
 require ('bootstrap-table')
 import * as ActiveStorage from "@rails/activestorage"
@@ -27,13 +29,11 @@ document.addEventListener('turbolinks:load', () => {
    var ctx = document.getElementById('myChart').getContext('2d');
    var myChart = new Chart(ctx, {
    type: 'bar',
-   backgroundColor: 'rgba(255, 255, 255, 1)',
    options: {
     plugins: {
       legend: {
-        display: 'false'
+        display: false
       }
-      
     }
    },
    data: {

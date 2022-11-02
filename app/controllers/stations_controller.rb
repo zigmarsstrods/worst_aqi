@@ -15,9 +15,10 @@ class StationsController < ApplicationController
 
   end
 
-  def zero
-    @title = '0'
-
+  def country_aqi
+    respond_to do |format|
+      format.json { render json: Station.find_by(country_id: params["id"]) }
+    end
   end
 
 end

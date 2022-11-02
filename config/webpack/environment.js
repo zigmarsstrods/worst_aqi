@@ -8,6 +8,7 @@ environment.plugins.append(
     '$': 'jquery',
     'jQuery': 'jquery',
     'windows.jQuery': 'jquery',
+    Popper: ['popper.js', 'default']
   })
 )
 
