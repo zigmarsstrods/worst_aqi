@@ -6,8 +6,8 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import Chart from 'chart.js/auto';
-// import "bootstrap"
-// import "../stylesheets/application"
+import "bootstrap"
+import "../stylesheets/application"
 require('jquery-ui/dist/jquery-ui')
 require ('bootstrap-table')
 import * as ActiveStorage from "@rails/activestorage"
