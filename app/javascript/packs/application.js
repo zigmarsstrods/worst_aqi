@@ -29,7 +29,10 @@ document.addEventListener('turbolinks:load', () => {
    var ctx = document.getElementById('myChart').getContext('2d');
    var myChart = new Chart(ctx, {
    type: 'bar',
-   options: {
+   defaults: {
+    backgroundColor:'rgba(0, 0, 0, 0.1)'
+   },
+   options: { 
     plugins: {
       legend: {
         display: false
