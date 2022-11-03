@@ -1,13 +1,18 @@
-<h1>Top 10 countries with worst Air Quality Index</h1>
-
-<canvas id="myChart" width="200px" height="100px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
-
-<%= javascript_pack_tag "drop_down" %>
+<% content_for :content do %>
+<div class="jumbotron text-center">
+        <h1>Latest Air Quality information<h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-16">
+            <br>
+            <br>
+            <%= javascript_pack_tag "drop_down" %>
 <div class="demo">
 <table><tbody><tr><td>
 <form action="#">
 <fieldset>
-    <label for="country">Check current situation in: </label>
+    <label for="country">Check the current situation in:</label>
     <select name="country" id="country">
       <%= options_for_select(Country.where(id: Station.pluck(:country_id)).all.collect{ |c| [c.name, c.id] }) %>
     </select>
@@ -15,10 +20,18 @@
 </form>
 </td>
 <td>
-<p class='extra_padding' id='aqi_result'></p></td>
+<p class='extra_padding' id='aqi_result' ></p></td>
 </tr></tbody></table>
 </div>
+<br>
+<br>
+                <p>
+                   <h1>Top 10 countries with worst Air Quality Index</h1>
+<canvas id="myChart" width="200px" height="65px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
 
+
+<br>
+<br>
 <h1>Ranking for all countries</h1>
 <div class="container">
  <table id="table" class="table table-striped">
@@ -33,7 +46,7 @@
       <%c =1 %>
       <% @stations_all.each do |station| %>
         <tr>
-          <td><%= c %>.</td>
+          <td><%= c %></td>
           <td><%= station.country.name %></td>
           <td><%= station.aqi %></td>
         </tr>
@@ -42,3 +55,11 @@
     </tbody>
   </table>
 </div>
+                  
+                </p>
+
+            </div>
+        </div>
+    </div>
+<% end %>
+
