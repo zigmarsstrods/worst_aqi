@@ -23,7 +23,8 @@ FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 LABEL fly_launch_runtime="rails"
 
-ARG NODE_VERSION=16.13.0
+ARG NODE_VERSION=12.18.2
+ARG YARN_VERSION=1.22.19
 ARG BUNDLER_VERSION=2.3.24
 
 ARG RAILS_ENV=production
@@ -44,7 +45,7 @@ RUN mkdir -p tmp/pids
 RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
 ENV PATH $VOLTA_HOME/bin:/usr/local/bin:$PATH
-RUN volta install node@${NODE_VERSION} yarn
+RUN volta install node@${NODE_VERSION} yarn@${YARN_VERSION}
 
 #######################################################################
 
